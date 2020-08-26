@@ -1,11 +1,17 @@
 ---
 - hosts: all
   tasks:
-   - name: hello world
+   - name: Restart gerrit Server
      debug:
-       msg: Hello World
-   - name: Create a directory if it does not exist
-     file:
-       path: /etc/some_directory
-       state: directory
-       mode: '0755'
+       msg: We will be restarting the gerrit services
+   - name: Make sure a service is running
+     systemd:
+       state: restarted
+       name: gerrit
+     become: yes
+   - name: print the status of the gerrit service
+     command: systemctl status gerrit
+     register: logdata
+     become: yes
+   - debug: msg="{{ logdata.stdout }}"
+   - debug: msg="{{ logdata.stderr}}"
