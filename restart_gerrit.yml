@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+   - name: hello world
+     debug:
+       msg: Hello World
+   - name: Make sure a service is running
+     systemd:
+       state: restarted
+       name: gerrit
+     become: yes
