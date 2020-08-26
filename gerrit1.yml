@@ -1,10 +1,10 @@
 ---
 - hosts: all
   tasks:
-   - name: Restart gerrit Server
+   - name: Message out Restart gerrit Server
      debug:
        msg: We will be restarting the gerrit services
-   - name: Make sure a service is running
+   - name: Restart the Gerrit Service
      systemd:
        state: restarted
        name: gerrit
