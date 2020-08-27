@@ -9,3 +9,7 @@
        state: restarted
        name: gerrit
      become: yes
+   - name: ansible create directory example
+     file:
+       path: /tmp/devops_directory
+       state: directory
