@@ -13,4 +13,4 @@
      command: systemctl status gerrit
      register: logdata
    - debug: msg="{{ logdata.stdout }}"
-   - debug: msg="{{ logdata.stderr}}"
+   - debug: msg="{{ logdata.stderr }}"
