@@ -12,6 +12,5 @@
    - name: print the status of the gerrit service
      command: systemctl status gerrit
      register: logdata
-     become: yes
    - debug: msg="{{ logdata.stdout }}"
    - debug: msg="{{ logdata.stderr}}"
