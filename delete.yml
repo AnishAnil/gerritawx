@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+  - name: delete all directories greater than 30 days
+    command: find . -type f -mtime +7 -name '*.gz' -execdir rm -- '{}' \;
